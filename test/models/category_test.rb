@@ -3,6 +3,8 @@ require 'test_helper'
 class CategoryTest < ActiveSupport::TestCase
 
   def setup
+    # this is going to be run before each test is running
+    # like before_action
     @category = Category.new(name: "Sports")
   end
 

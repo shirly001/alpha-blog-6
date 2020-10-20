@@ -15,14 +15,16 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
     sign_in_as(@admin_user)
     get new_category_url
-    assert_response :success
+    assert_response :success #check if request is sucessfully made
   end
 
   test "should create category" do
     sign_in_as(@admin_user)
-    assert_difference('Category.count', 1) do
+    assert_difference('Category.count', 1) do #when we create a category, the count should change by 1
       post categories_url, params: { category: { name: "Travel" } }
     end
+    #test numeric difference between the return value of an expression
+    #as a result of what is evaluated in the yielded block.
 
     assert_redirected_to category_url(Category.last)
   end

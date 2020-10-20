@@ -17,7 +17,7 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_response :success
-    assert_match "Sports", response.body
+    assert_match "Sports", response.body #check if a string contains a substring
   end
 
   test "get new category form and reject invalid category submission" do
@@ -27,7 +27,7 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
       post categories_path, params: { category: { name: " "} }
     end
     assert_match "errors", response.body
-    assert_select 'div.alert'
+    assert_select 'div.alert'#check if argument selected element exists
     assert_select 'h4.alert-heading'
   end
 end
